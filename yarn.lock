@@ -533,7 +533,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.3", "@babel/runtime@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.4.tgz#dc2e34982eb236803aa27a07fea6857af1b9171d"
   dependencies:
@@ -711,6 +711,10 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
+
+"@react-native-community/async-storage@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.4.0.tgz#11864c8ff61b7f8c7062cb8f5c3a721f6a648ede"
 
 "@react-native-community/cli@^1.2.1":
   version "1.9.4"
@@ -1985,6 +1989,10 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
+flow@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/flow/-/flow-0.2.3.tgz#f8da65efa249127ec99376a28896572a9795d1af"
+
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -2215,6 +2223,12 @@ has@^1.0.1, has@^1.0.3:
   resolved "https://registry.yarnpkg.com/has/-/has-1.0.3.tgz#722d7cbfc1f6aa8241f16dd814e011e1f41e8796"
   dependencies:
     function-bind "^1.1.1"
+
+hoist-non-react-statics@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
+  dependencies:
+    react-is "^16.7.0"
 
 hosted-git-info@^2.1.4:
   version "2.7.1"
@@ -2893,13 +2907,13 @@ jest-watcher@^24.8.0:
     jest-util "^24.8.0"
     string-length "^2.0.0"
 
-jest-worker@24.0.0-alpha.6, jest-worker@^24.0.0-alpha.6:
+jest-worker@24.0.0-alpha.6:
   version "24.0.0-alpha.6"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-24.0.0-alpha.6.tgz#463681b92c117c57107135c14b9b9d6cd51d80ce"
   dependencies:
     merge-stream "^1.0.1"
 
-jest-worker@^24.6.0:
+jest-worker@^24.0.0-alpha.6, jest-worker@^24.6.0:
   version "24.6.0"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-24.6.0.tgz#7f81ceae34b7cde0c9827a6980c35b7cdc0161b3"
   dependencies:
@@ -4132,7 +4146,7 @@ prompts@^2.0.1:
     kleur "^3.0.2"
     sisteransi "^1.0.0"
 
-prop-types@^15.5.8, prop-types@^15.6.2:
+prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -4203,7 +4217,7 @@ react-devtools-core@^3.6.0:
     shell-quote "^1.6.1"
     ws "^3.3.1"
 
-react-is@^16.8.1, react-is@^16.8.3, react-is@^16.8.4:
+react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.3, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
 
@@ -4268,6 +4282,17 @@ react-proxy@^1.1.7:
   dependencies:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
+
+react-redux@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.0.3.tgz#983c5a6de81cb1e696bd1c090ba826545f9170f1"
+  dependencies:
+    "@babel/runtime" "^7.4.3"
+    hoist-non-react-statics "^3.3.0"
+    invariant "^2.2.4"
+    loose-envify "^1.4.0"
+    prop-types "^15.7.2"
+    react-is "^16.8.6"
 
 react-test-renderer@16.8.3:
   version "16.8.3"
@@ -4341,6 +4366,17 @@ realpath-native@^1.1.0:
   resolved "https://registry.yarnpkg.com/realpath-native/-/realpath-native-1.1.0.tgz#2003294fea23fb0672f2476ebe22fcf498a2d65c"
   dependencies:
     util.promisify "^1.0.0"
+
+redux-persist@^5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-5.10.0.tgz#5d8d802c5571e55924efc1c3a9b23575283be62b"
+
+redux@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
+  dependencies:
+    loose-envify "^1.4.0"
+    symbol-observable "^1.2.0"
 
 regenerate-unicode-properties@^8.0.2:
   version "8.0.2"
@@ -4915,6 +4951,10 @@ supports-color@^6.1.0:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-6.1.0.tgz#0764abc69c63d5ac842dd4867e8d025e880df8f3"
   dependencies:
     has-flag "^3.0.0"
+
+symbol-observable@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
 
 symbol-tree@^3.2.2:
   version "3.2.2"
