@@ -8,12 +8,15 @@
   },
   "dependencies": {
     "react": "16.8.3",
-    "react-native": "0.59.8"
+    "react-native": "0.59.8",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/runtime": "^7.4.4",
     "babel-jest": "^24.8.0",
+    "flow": "^0.2.3",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.54.0",
     "react-test-renderer": "16.8.3"
