@@ -15,7 +15,6 @@ import LoadingComponent from "./source/components/LoadingComponent";
 class App extends Component {
   constructor() {
     super();
-    this.state = { rehydrated: false, persistor: null };
   }
   render() {
     return (
