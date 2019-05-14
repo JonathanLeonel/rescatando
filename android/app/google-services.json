@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "567202936195",
+    "firebase_url": "https://rescatando-303ea.firebaseio.com",
+    "project_id": "rescatando-303ea",
+    "storage_bucket": "rescatando-303ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567202936195:android:366cedc819efe67c",
+        "android_client_info": {
+          "package_name": "com.jkdeveloper.rescatando"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "567202936195-9jbbisishjg0v0vn5pdrdjd91mqoscql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_qFtJKICUmb4-b9SB7UjpyQjf-tiF1gU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "567202936195-9jbbisishjg0v0vn5pdrdjd91mqoscql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-package com.rescatando;
+package com.jkdeveloper.rescatando;
 
 import com.facebook.react.ReactActivity;
 

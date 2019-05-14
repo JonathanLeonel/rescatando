@@ -1,0 +1,34 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'rescatando' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for rescatando
+  pod 'Firebase/Core'
+
+  target 'rescatando-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'rescatandoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+# target 'rescatando-tvOS' do
+#   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+#   # use_frameworks!
+
+#   # Pods for rescatando-tvOS
+
+#   target 'rescatando-tvOSTests' do
+#     inherit! :search_paths
+#     # Pods for testing
+#   end
+
+# end
