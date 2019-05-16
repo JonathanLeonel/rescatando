@@ -44,7 +44,7 @@ const googleLogin = async () => {
 
     // console.info(JSON.stringify(currentUser.toJSON()));
     if (Platform.OS === "ios") {
-      alert(currentUser.user._user.displayName);
+      alert(currentUser.user._user.email);
     } else {
       alert(currentUser.user.displayName);
     }
