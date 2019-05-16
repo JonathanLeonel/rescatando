@@ -1,13 +1,21 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
+install! 'cocoapods', :deterministic_uuids => false, :integrate_targets => false
 
 target 'rescatando' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
+  
+  # pod 'RNFBApp', path: '../node_modules/@react-native-firebase/app/ios/RNFBApp.podspec'
+  # pod 'RNFBAnalytics', path: '../node_modules/@react-native-firebase/analytics/ios/RNFBAnalytics.podspec'
 
   # Pods for rescatando
-  pod 'Firebase/Core'
+   pod 'Firebase/Core', '~> 5.20.1'
+#  pod 'Firebase/Analytics'
+   pod 'Firebase/Auth', '~> 5.20.1'
+#  pod "RNFirebase", :path => "../node_modules/react-native-firebase/ios/RNFirebase.podspec"
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+  pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
   
   pod 'React', :path => '../node_modules/react-native'
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
@@ -20,17 +28,16 @@ target 'rescatando' do
     end
   end
   
-  target 'rescatando-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-    pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+  # target 'rescatando-tvOSTests' do
+  #   inherit! :search_paths
+  #   # Pods for testing
 
-  end
+  # end
 
-  target 'rescatandoTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # target 'rescatandoTests' do
+  #   inherit! :search_paths
+  #   # Pods for testing
+  # end
 
 end
 

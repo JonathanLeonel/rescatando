@@ -2,7 +2,7 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import { StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
 import { GoogleSignin, GoogleSigninButton } from "react-native-google-signin";
 import firebase from "react-native-firebase";
 
@@ -32,22 +32,22 @@ const googleLogin = async () => {
   try {
     // Add any configuration settings here:
     await GoogleSignin.configure({
-      webClientId:
-        "567202936195-9jbbisishjg0v0vn5pdrdjd91mqoscql.apps.googleusercontent.com"
+      webClientId: "567202936195-9jbbisishjg0v0vn5pdrdjd91mqoscql.apps.googleusercontent.com"
     });
 
     const data = await GoogleSignin.signIn();
 
     // create a new firebase credential with the token
-    const credential = firebase.auth.GoogleAuthProvider.credential(
-      data.idToken,
-      data.accessToken
-    );
+    const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken);
     // login with credential
     const currentUser = await firebase.auth().signInWithCredential(credential);
 
     // console.info(JSON.stringify(currentUser.toJSON()));
-    alert(currentUser.user.displayName);
+    if (Platform.OS === "ios") {
+      alert(currentUser.user._user.displayName);
+    } else {
+      alert(currentUser.user.displayName);
+    }
   } catch (e) {
     console.error(e);
   }
