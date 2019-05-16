@@ -2,13 +2,21 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { GoogleSignin, GoogleSigninButton } from "react-native-google-signin";
+import firebase from "react-native-firebase";
 
 const LoginComponent = props => {
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>{props.welcome}</Text>
-      <Button title="Log in" onPress={() => props.onLogin()} />
+      <GoogleSigninButton
+        style={{ width: 192, height: 48 }}
+        size={GoogleSigninButton.Size.Wide}
+        color={GoogleSigninButton.Color.Dark}
+        onPress={() => googleLogin()}
+        // disabled={this.state.isSigninInProgress}
+      />
     </View>
   );
 };
@@ -18,6 +26,31 @@ export default LoginComponent;
 LoginComponent.propTypes = {
   welcome: PropTypes.string.isRequired,
   onLogin: PropTypes.func.isRequired
+};
+
+const googleLogin = async () => {
+  try {
+    // Add any configuration settings here:
+    await GoogleSignin.configure({
+      webClientId:
+        "567202936195-9jbbisishjg0v0vn5pdrdjd91mqoscql.apps.googleusercontent.com"
+    });
+
+    const data = await GoogleSignin.signIn();
+
+    // create a new firebase credential with the token
+    const credential = firebase.auth.GoogleAuthProvider.credential(
+      data.idToken,
+      data.accessToken
+    );
+    // login with credential
+    const currentUser = await firebase.auth().signInWithCredential(credential);
+
+    // console.info(JSON.stringify(currentUser.toJSON()));
+    alert(currentUser.user.displayName);
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 const styles = StyleSheet.create({

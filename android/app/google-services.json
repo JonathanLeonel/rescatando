@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "567202936195-5d54fdje2gkjg8rk6pei053591mehs9m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jkdeveloper.rescatando",
+            "certificate_hash": "d309b05f76023be527da313ad32e297501e02038"
+          }
+        },
+        {
           "client_id": "567202936195-9jbbisishjg0v0vn5pdrdjd91mqoscql.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -30,6 +38,13 @@
             {
               "client_id": "567202936195-9jbbisishjg0v0vn5pdrdjd91mqoscql.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "567202936195-ficd0lhc0h4k7oj14655spbnu5i5utbu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jkdeveloper.rescatando"
+              }
             }
           ]
         }

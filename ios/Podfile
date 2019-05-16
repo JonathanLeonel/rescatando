@@ -11,6 +11,8 @@ target 'rescatando' do
   target 'rescatando-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RNGoogleSignin', :path => '../node_modules/react-native-google-signin'
+
   end
 
   target 'rescatandoTests' do
