@@ -7,7 +7,19 @@ target 'rescatando' do
 
   # Pods for rescatando
   pod 'Firebase/Core'
-
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+  
+  pod 'React', :path => '../node_modules/react-native'
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name == "React"
+        target.remove_from_project
+      end
+    end
+  end
+  
   target 'rescatando-tvOSTests' do
     inherit! :search_paths
     # Pods for testing

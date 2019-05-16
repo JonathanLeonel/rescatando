@@ -49,9 +49,19 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - React (0.59.8):
+    - React/Core (= 0.59.8)
+  - React/Core (0.59.8):
+    - yoga (= 0.59.8.React)
+  - RNCAsyncStorage (1.4.0):
+    - React
+  - yoga (0.59.8.React)
 
 DEPENDENCIES:
   - Firebase/Core
+  - React (from `../node_modules/react-native`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -63,6 +73,14 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
 
+EXTERNAL SOURCES:
+  React:
+    :path: "../node_modules/react-native"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
+  yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
+
 SPEC CHECKSUMS:
   Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
   FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
@@ -71,7 +89,10 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: ffe513e90551844a739e7bcbb1d2aca1c28a4338
   GoogleUtilities: f44b068df02195da10409f415bd8c98439cd70fa
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  React: 76e6aa2b87d05eb6cccb6926d72685c9a07df152
+  RNCAsyncStorage: 0c3ef98facf3fecf455b518d6f52e10fc964c523
+  yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
-PODFILE CHECKSUM: 1f6d828fa00b0a6729414f39d2e172d3e758a2ae
+PODFILE CHECKSUM: 7aa2e6b6cae16426c38a2a6338fff823854314d5
 
 COCOAPODS: 1.6.1
