@@ -4,8 +4,8 @@ import { View, Text, Button } from "react-native";
 export default props => {
   return (
     <View>
-      <Text>Login Screen</Text>
-      <Button onPress={() => props.navigation.push("Home")} title="Log in" />
+      <Text>Map Screen</Text>
+      <Button onPress={() => props.navigation.push("Chat")} title="Ir al chat" />
     </View>
   );
 };
