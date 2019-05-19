@@ -77,6 +77,8 @@ PODS:
     - yoga (= 0.59.8.React)
   - RNCAsyncStorage (1.4.0):
     - React
+  - RNGestureHandler (1.2.1):
+    - React
   - RNGoogleSignin (2.0.0):
     - GoogleSignIn (~> 4.4.0)
     - React
@@ -87,6 +89,7 @@ DEPENDENCIES:
   - Firebase/Core (~> 5.20.1)
   - React (from `../node_modules/react-native`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNGoogleSignin (from `../node_modules/react-native-google-signin`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -110,6 +113,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
   RNGoogleSignin:
     :path: "../node_modules/react-native-google-signin"
   yoga:
@@ -129,10 +134,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   React: 76e6aa2b87d05eb6cccb6926d72685c9a07df152
-  RNCAsyncStorage: b82dc6e5b39a625d70e3b3492bff75c0de94ba71
+  RNCAsyncStorage: 0c3ef98facf3fecf455b518d6f52e10fc964c523
+  RNGestureHandler: aea90f0ad8e35fec23438db6fc3ad79be58bb734
   RNGoogleSignin: d030c6c6591db24c3cee649f64c7babf0a1699a0
   yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
-PODFILE CHECKSUM: c230cc4de5a4947bc4f4852b1477adc13dd040b9
+PODFILE CHECKSUM: 89831c411acda50d067c6accd516c0f6f5b40fb8
 
 COCOAPODS: 1.6.1
