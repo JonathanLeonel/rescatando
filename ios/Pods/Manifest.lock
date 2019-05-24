@@ -82,6 +82,8 @@ PODS:
   - RNGoogleSignin (2.0.0):
     - GoogleSignIn (~> 4.4.0)
     - React
+  - RNVectorIcons (6.4.2):
+    - React
   - yoga (0.59.8.React)
 
 DEPENDENCIES:
@@ -91,6 +93,7 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNGoogleSignin (from `../node_modules/react-native-google-signin`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -117,6 +120,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNGoogleSignin:
     :path: "../node_modules/react-native-google-signin"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -134,11 +139,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   React: 76e6aa2b87d05eb6cccb6926d72685c9a07df152
-  RNCAsyncStorage: 0c3ef98facf3fecf455b518d6f52e10fc964c523
+  RNCAsyncStorage: b82dc6e5b39a625d70e3b3492bff75c0de94ba71
   RNGestureHandler: aea90f0ad8e35fec23438db6fc3ad79be58bb734
   RNGoogleSignin: d030c6c6591db24c3cee649f64c7babf0a1699a0
+  RNVectorIcons: 6607bd3a30291d0edb56f9bbe7ae411ee2b928b0
   yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
-PODFILE CHECKSUM: 89831c411acda50d067c6accd516c0f6f5b40fb8
+PODFILE CHECKSUM: 98a0de1c9e2f68b355d6412f09cbba81775c6ef8
 
 COCOAPODS: 1.6.1

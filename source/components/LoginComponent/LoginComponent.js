@@ -14,7 +14,7 @@ const LoginComponent = props => {
         style={{ width: 192, height: 48 }}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Dark}
-        onPress={() => googleLogin()}
+        onPress={() => googleLogin(props.onLogin)}
         // disabled={this.state.isSigninInProgress}
       />
     </View>
@@ -28,7 +28,7 @@ LoginComponent.propTypes = {
   onLogin: PropTypes.func.isRequired
 };
 
-const googleLogin = async () => {
+const googleLogin = async onLogin => {
   try {
     // Add any configuration settings here:
     await GoogleSignin.configure({
@@ -48,6 +48,8 @@ const googleLogin = async () => {
     } else {
       alert(currentUser.user.displayName);
     }
+
+    onLogin();
   } catch (e) {
     console.error(e);
   }

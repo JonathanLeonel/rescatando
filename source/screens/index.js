@@ -1,3 +1,5 @@
+import LoginComponent from "../components/LoginComponent";
+
 import LoginScreen from "./LoginScreen";
 import HomeScreen from "./HomeScreen";
 import MapScreen from "./MapScreen";
@@ -9,7 +11,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 const AppNavigator = createStackNavigator(
   {
     Login: {
-      screen: LoginScreen,
+      screen: LoginComponent, //LoginScreen,
       navigationOptions: () => ({
         headerTitle: "Bienvenido a Rescatando!"
       })
@@ -40,7 +42,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Login"
   }
 );
 
