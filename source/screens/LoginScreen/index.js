@@ -1,11 +1,22 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { StyleSheet, ImageBackground } from "react-native";
+import LoginComponent from "../../components/LoginComponent";
 
 export default props => {
   return (
-    <View>
-      <Text>Login Screen</Text>
-      <Button onPress={() => props.navigation.push("Home")} title="Log in" />
-    </View>
+    <ImageBackground source={require("./img/loginBackground.jpg")} style={styles.container}>
+      <LoginComponent style={styles.loginCard} onLogin={() => props.navigation.push("Home")} />
+    </ImageBackground>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center"
+  },
+  loginCard: {
+    paddingHorizontal: 40
+  }
+});

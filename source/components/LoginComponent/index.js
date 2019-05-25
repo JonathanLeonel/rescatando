@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import { loginAction } from "./redux/actions";
 
 export default connect(
-  store => ({
-    welcome: store.login.welcome
+  (store, ownProps) => ({
+    welcome: store.login.welcome,
+    ...ownProps
   }),
-  dispatch => ({ onLogin: () => dispatch(loginAction()) })
+  (dispatch, ownProps) => ({ onLogin: () => dispatch(loginAction()), ...ownProps })
 )(LoginComponent);
