@@ -6,22 +6,7 @@ import { Platform, StyleSheet, Text, View } from "react-native";
 import { GoogleSignin, GoogleSigninButton } from "react-native-google-signin";
 import firebase from "react-native-firebase";
 
-import FadeInView from "../FadeInView";
-
-// const LoginComponent = props => {
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.welcome}>{props.welcome}</Text>
-//       <GoogleSigninButton
-//         style={{ width: 192, height: 48 }}
-//         size={GoogleSigninButton.Size.Wide}
-//         color={GoogleSigninButton.Color.Dark}
-//         onPress={() => googleLogin(props.onLogin)}
-//         // disabled={this.state.isSigninInProgress}
-//       />
-//     </View>
-//   );
-// };
+import FadeInView from "../../../components/FadeInView";
 
 import { Card, Title, Paragraph, ActivityIndicator } from "react-native-paper";
 
@@ -84,7 +69,7 @@ const googleLogin = async (onLogin, setSignInInProgress) => {
     // }
 
     setSignInInProgress(false);
-    onLogin();
+    onLogin(currentUser);
   } catch (e) {
     console.error(e);
   }

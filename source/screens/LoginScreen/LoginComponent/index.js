@@ -9,5 +9,11 @@ export default connect(
     welcome: store.login.welcome,
     ...ownProps
   }),
-  (dispatch, ownProps) => ({ onLogin: () => dispatch(loginAction()), ...ownProps })
+  (dispatch, ownProps) => ({
+    ...ownProps,
+    onLogin: currentUser => {
+      ownProps.onLogin();
+      return dispatch(loginAction(currentUser));
+    }
+  })
 )(LoginComponent);

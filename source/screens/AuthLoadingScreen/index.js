@@ -1,4 +1,4 @@
-import LoginScreen from "./LoginScreen";
+import AuthLoadingScreen from "./AuthLoadingScreen";
 
 import { connect } from "react-redux";
 
@@ -8,4 +8,4 @@ export default connect(
     ...ownProps
   }),
   (dispatch, ownProps) => ({ ...ownProps })
-)(LoginScreen);
+)(AuthLoadingScreen);

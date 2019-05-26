@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import { loginAction } from "../../LoginScreen/LoginComponent/redux/actions";
-import BuscadosScreen from "./BuscadosScreen";
+import AccountScreen from "./AccountScreen";
 
 export default connect(
   (store, ownProps) => ({
@@ -14,4 +14,4 @@ export default connect(
       return dispatch(loginAction(null));
     }
   })
-)(BuscadosScreen);
+)(AccountScreen);

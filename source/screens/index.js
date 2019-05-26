@@ -1,19 +1,23 @@
+import AuthLoadingScreen from "./AuthLoadingScreen";
 import LoginScreen from "./LoginScreen";
 import HomeScreen from "./HomeScreen";
 import MapScreen from "./MapScreen";
 import UploadFormScreen from "./UploadFormScreen";
 import ChatScreen from "./ChatScreen";
 
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createAppContainer, createSwitchNavigator } from "react-navigation";
 
-const AppNavigator = createStackNavigator(
+const AuthStack = createStackNavigator({
+  Login: {
+    screen: LoginScreen, //LoginComponent, //LoginScreen,
+    navigationOptions: () => ({
+      headerTitle: "Bienvenido a Rescatando!"
+    })
+  }
+});
+
+const AppStack = createStackNavigator(
   {
-    Login: {
-      screen: LoginScreen, //LoginComponent, //LoginScreen,
-      navigationOptions: () => ({
-        headerTitle: "Bienvenido a Rescatando!"
-      })
-    },
     Home: {
       screen: HomeScreen,
       navigationOptions: () => ({
@@ -40,8 +44,19 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: "Home"
   }
 );
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthLoading: AuthLoadingScreen,
+      App: AppStack,
+      Auth: AuthStack
+    },
+    {
+      initialRouteName: "AuthLoading"
+    }
+  )
+);

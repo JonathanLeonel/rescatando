@@ -6,12 +6,13 @@ export const LOGIN_ACTION = "LoginComponent:LOGIN_ACTION";
 //   };
 // };
 
-export const loginAction = () => {
+export const loginAction = currentUser => {
   return (dispatch, getState) => {
     setTimeout(() => {
       dispatch({
-        type: LOGIN_ACTION
+        type: LOGIN_ACTION,
+        currentUser
       });
-    }, 1500);
+    }, 0);
   };
 };

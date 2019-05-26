@@ -4,7 +4,7 @@ import hardSet from "redux-persist/lib/stateReconciler/hardSet";
 
 import AsyncStorage from "@react-native-community/async-storage";
 
-import { loginReducer } from "../components/LoginComponent/redux/reducers";
+import { loginReducer } from "../screens/LoginScreen/LoginComponent/redux/reducers";
 import thunk from "redux-thunk";
 
 // Configuracion de persist para redux-persist
