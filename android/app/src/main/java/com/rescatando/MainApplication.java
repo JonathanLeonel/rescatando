@@ -11,6 +11,8 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.airbnb.android.react.maps.MapsPackage;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,12 +29,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNFirebasePackage(),
-            new AsyncStoragePackage(),
-            new RNGoogleSigninPackage(),
-            new RNFirebaseAuthPackage(),
-          new RNGestureHandlerPackage()
-            
+          new RNFirebasePackage(),
+          new AsyncStoragePackage(),
+          new RNGoogleSigninPackage(),
+          new RNFirebaseAuthPackage(),
+          new RNGestureHandlerPackage(),
+          new MapsPackage()
       );
     }
 
