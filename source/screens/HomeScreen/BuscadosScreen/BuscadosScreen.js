@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
-import { Button } from "react-native-paper";
+import { Button, FAB, withTheme } from "react-native-paper";
 
-export default props => {
+const BuscadosScreen = props => {
+  const { colors } = props.theme;
   return (
     <View style={styles.backgroundView}>
       <ScrollView>
@@ -20,9 +21,12 @@ export default props => {
           ))}
         </View>
       </ScrollView>
+      <FAB style={{ ...styles.fab, backgroundColor: colors.primary }} icon="map" onPress={() => props.navigation.push("Map")} />
     </View>
   );
 };
+
+export default withTheme(BuscadosScreen);
 
 const styles = StyleSheet.create({
   backgroundView: {
@@ -57,6 +61,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
     // alignContent: "flex-start"
     // alignSelf: "stretch"
+  },
+  fab: {
+    position: "absolute",
+    margin: 16,
+    right: 0,
+    bottom: 0
   }
 });
 
