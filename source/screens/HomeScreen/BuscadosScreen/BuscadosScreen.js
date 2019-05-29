@@ -12,12 +12,19 @@ const BuscadosScreen = props => {
           <Text style={styles.headingText}>Si viste a alguien y lo reconoces toca su foto para ponerte en contacto con su dueño.</Text>
           <Text style={styles.headingParagraph}>Si no está acá, empezá un encuentro cargando una foto y le avisamos a los que estén con una búsqueda activa.</Text>
           <View style={styles.buttonContainer}>
-            <Button mode="contained">Empezar encuentro</Button>
+            <Button
+              mode="contained"
+              onPress={() => {
+                props.navigation.push("UploadForm");
+              }}
+            >
+              Encontre una mascota
+            </Button>
           </View>
         </View>
         <View style={styles.imagesContainer}>
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(el => (
-            <Image style={{ width: "33.3%", aspectRatio: 1, height: undefined }} source={images[getRandomInt(0, 9)]} key={el} /> //<ImageComponent key={el} imgNumber={getRandomInt(0, 9)} />
+            <Image style={styles.image} source={images[getRandomInt(0, 9)]} key={el} /> //<ImageComponent key={el} imgNumber={getRandomInt(0, 9)} />
           ))}
         </View>
       </ScrollView>
@@ -61,6 +68,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
     // alignContent: "flex-start"
     // alignSelf: "stretch"
+  },
+  image: {
+    width: "33.3%",
+    aspectRatio: 1,
+    height: undefined
   },
   fab: {
     position: "absolute",
