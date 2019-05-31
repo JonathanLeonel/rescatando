@@ -1,22 +1,50 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import { TextInput, Button } from "react-native-paper";
 
+// ID: String,
+// UserID: String,
+// Nombre: String,
+// Fecha: Date,
+// GeoLocation: {
+//   Latitude: Int,
+//   Longitude: Int
+// },
+// Raza: String,
+// Edad: Int [Cachorro, joven, adulto],
+// Pelaje: String,
+// Collar: String,
+// Actitud: Int [Calmado, Asustado, Agresivo],
+// Situación: Int [LugarSeguro, Calle],
+// OtrosDetalles: String
+
 export default props => {
-  const [name, setName] = useState("");
+  const form = props.form || {};
+
+  const [nombre, setNombre] = useState(form.nombre || "");
+  const [raza, setRaza] = useState(form.raza || "");
+  const [pelaje, setPelaje] = useState(form.pelaje || "");
+  const [collar, setCollar] = useState(form.collar || "");
+  const [otrosDetalles, setOtrosDetalles] = useState(form.otrosDetalles || "");
 
   return (
     <View style={styles.backgroundView}>
-      <View style={styles.headingView}>
-        <Text style={styles.headingTitle}>Encontre una mascota</Text>
-        <View style={styles.imageContainer}>
-          <View style={styles.image} />
+      <ScrollView>
+        <View style={styles.headingView}>
+          <Text style={styles.headingTitle}>Encontre una mascota</Text>
+          <View style={styles.imageContainer}>
+            <View style={styles.image} />
+          </View>
+          <TextInput style={styles.textInput} type="flat" label="Nombre" value={nombre} onChangeText={setNombre} />
+          <TextInput style={styles.textInput} type="flat" label="Raza" value={raza} onChangeText={setRaza} />
+          <TextInput style={styles.textInput} type="flat" label="Pelaje" value={pelaje} onChangeText={setPelaje} />
+          <TextInput style={styles.textInput} type="flat" label="Collar" value={collar} onChangeText={setCollar} />
+          <TextInput style={styles.textInput} type="flat" multiline={true} numberOfLines={5} label="Otros Detalles" value={otrosDetalles} onChangeText={setOtrosDetalles} />
+          <Button style={styles.button} mode="contained" onPress={() => console.info("Guardar")}>
+            Guardar y publicar
+          </Button>
         </View>
-        <TextInput style={styles.textInput} type="flat" label="Nombre" value={name} onChangeText={setName} />
-        <Button style={styles.button} mode="contained" onPress={() => console.info("Guardar")}>
-          Guardar y publicar
-        </Button>
-      </View>
+      </ScrollView>
     </View>
   );
 };
