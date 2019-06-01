@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-image-picker')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-gesture-handler')
     implementation project(':react-native-google-signin')
@@ -163,6 +164,8 @@ dependencies {
     }
     implementation 'com.google.android.gms:play-services-base:+'
     implementation 'com.google.android.gms:play-services-maps:+'
+
+    implementation project(':react-native-image-picker')
 }
 
 // Run this once to be able to run the application with BUCK

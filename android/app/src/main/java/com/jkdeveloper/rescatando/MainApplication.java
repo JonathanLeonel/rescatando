@@ -12,6 +12,7 @@ import com.facebook.soloader.SoLoader;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.airbnb.android.react.maps.MapsPackage;
+import com.imagepicker.ImagePickerPackage;
 
 
 import java.util.Arrays;
@@ -34,7 +35,8 @@ public class MainApplication extends Application implements ReactApplication {
           new RNGoogleSigninPackage(),
           new RNFirebaseAuthPackage(),
           new RNGestureHandlerPackage(),
-          new MapsPackage()
+          new MapsPackage(),
+          new ImagePickerPackage()
       );
     }
 

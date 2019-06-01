@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import { TextInput, Button } from "react-native-paper";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import ImagePicker from "react-native-image-picker";
 
 // ID: String,
 // UserID: String,
@@ -21,6 +23,7 @@ import { TextInput, Button } from "react-native-paper";
 export default props => {
   const form = props.form || {};
 
+  const [foto, setFoto] = useState(undefined);
   const [nombre, setNombre] = useState(form.nombre || "");
   const [raza, setRaza] = useState(form.raza || "");
   const [pelaje, setPelaje] = useState(form.pelaje || "");
@@ -32,9 +35,17 @@ export default props => {
       <ScrollView>
         <View style={styles.headingView}>
           <Text style={styles.headingTitle}>Encontre una mascota</Text>
-          <View style={styles.imageContainer}>
-            <View style={styles.image} />
-          </View>
+          <TouchableOpacity onPress={() => showImagePicker(setFoto)} style={styles.imageContainer}>
+            <Image
+              style={{
+                width: 51,
+                height: 51,
+                resizeMode: "contain"
+              }}
+              style={styles.image}
+              source={foto}
+            />
+          </TouchableOpacity>
           <TextInput style={styles.textInput} type="flat" label="Nombre" value={nombre} onChangeText={setNombre} />
           <TextInput style={styles.textInput} type="flat" label="Raza" value={raza} onChangeText={setRaza} />
           <TextInput style={styles.textInput} type="flat" label="Pelaje" value={pelaje} onChangeText={setPelaje} />
@@ -94,3 +105,32 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   }
 });
+
+const showImagePicker = setImage => {
+  const options = {
+    title: "Elegí la foto",
+    storageOptions: {
+      skipBackup: true,
+      path: "images"
+    }
+  };
+
+  ImagePicker.showImagePicker(options, response => {
+    console.log("Response = ", response);
+
+    if (response.didCancel) {
+      console.log("User cancelled image picker");
+    } else if (response.error) {
+      console.log("ImagePicker Error: ", response.error);
+    } else if (response.customButton) {
+      console.log("User tapped custom button: ", response.customButton);
+    } else {
+      // const source = { uri: response.uri };
+
+      // You can also display the image using data:
+      const source = { uri: "data:image/jpeg;base64," + response.data };
+
+      setImage(source);
+    }
+  });
+};

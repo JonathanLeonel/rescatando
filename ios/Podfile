@@ -51,6 +51,8 @@ target 'rescatando' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       if target.name == 'react-native-google-maps'

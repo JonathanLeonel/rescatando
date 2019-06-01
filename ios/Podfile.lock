@@ -105,6 +105,8 @@ PODS:
     - Google-Maps-iOS-Utils (= 2.1.0)
     - GoogleMaps (= 2.5.0)
     - React
+  - react-native-image-picker (0.28.1):
+    - React
   - react-native-maps (0.24.2):
     - React
   - React/Core (0.59.8):
@@ -180,6 +182,7 @@ DEPENDENCIES:
   - Google-Maps-iOS-Utils
   - GoogleMaps
   - react-native-google-maps (from `../node_modules/react-native-maps`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -229,6 +232,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   react-native-google-maps:
     :path: "../node_modules/react-native-maps"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
   RNCAsyncStorage:
@@ -263,13 +268,14 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   React: 76e6aa2b87d05eb6cccb6926d72685c9a07df152
   react-native-google-maps: 568cb03d0eae7fef93626f65d05be55642404ed4
+  react-native-image-picker: fd93361c666f397bdf72f9c6c23f13d2685b9173
   react-native-maps: 0316ed017dbb64b33b227751fa810e2454fcfa39
-  RNCAsyncStorage: b82dc6e5b39a625d70e3b3492bff75c0de94ba71
+  RNCAsyncStorage: 0c3ef98facf3fecf455b518d6f52e10fc964c523
   RNGestureHandler: aea90f0ad8e35fec23438db6fc3ad79be58bb734
   RNGoogleSignin: d030c6c6591db24c3cee649f64c7babf0a1699a0
   RNVectorIcons: 6607bd3a30291d0edb56f9bbe7ae411ee2b928b0
   yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
-PODFILE CHECKSUM: abdae239b1617981113f5464f1459793d9cadc9f
+PODFILE CHECKSUM: 4208b68c7654c4f37ef5ec58e8d8d69e8435814e
 
 COCOAPODS: 1.6.1

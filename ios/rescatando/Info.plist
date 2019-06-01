@@ -24,6 +24,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Rescatando quiere acceder a tu galeria para que puedas cargar una foto de una busqueda o un reporte</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Rescatando quiere acceder a tu camara para que puedas cargar una foto de una busqueda o un reporte</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Rescatando quiere guardar fotos en tu galeria para que puedas guardar una foto de una busqueda o un reporte</string>
+	<!-- <key>NSMicrophoneUsageDescription</key> -->
+	<!-- <string>Rescatando quiere acceder a tu microfono (para videos)</string> -->
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
