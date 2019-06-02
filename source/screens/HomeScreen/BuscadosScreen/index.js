@@ -1,17 +1,23 @@
 import { connect } from "react-redux";
 
-import { loginAction } from "../../LoginScreen/LoginComponent/redux/actions";
+import { fetchBuscados } from "./redux/actions";
 import BuscadosScreen from "./BuscadosScreen";
 
 export default connect(
-  (store, ownProps) => ({
-    ...ownProps
+  (state, ownProps) => ({
+    ...ownProps,
+    buscados: state.buscados.buscados,
+    error: state.buscados.error,
+    fetching: state.buscados.fetching
   }),
   (dispatch, ownProps) => ({
     ...ownProps,
     onLogout: () => {
       ownProps.navigation.navigate("Auth");
       return dispatch(loginAction(null));
+    },
+    fetchBuscados: () => {
+      return dispatch(fetchBuscados());
     }
   })
 )(BuscadosScreen);

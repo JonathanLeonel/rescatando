@@ -2,23 +2,17 @@ import React, { useState } from "react";
 import { StyleSheet, ImageBackground } from "react-native";
 import LoginComponent from "./LoginComponent";
 
-export default class LoginScreen extends React.Component {
-  constructor(props) {
-    super(props);
+export default props => {
+  if (this.props.currentUser) {
+    return null;
   }
 
-  render() {
-    if (this.props.currentUser) {
-      return null;
-    }
-
-    return (
-      <ImageBackground source={require("./img/loginBackground.jpg")} style={styles.container}>
-        <LoginComponent style={styles.loginCard} onLogin={() => this.props.navigation.navigate("App")} />
-      </ImageBackground>
-    );
-  }
-}
+  return (
+    <ImageBackground source={require("./img/loginBackground.jpg")} style={styles.container}>
+      <LoginComponent style={styles.loginCard} onLogin={() => this.props.navigation.navigate("App")} />
+    </ImageBackground>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

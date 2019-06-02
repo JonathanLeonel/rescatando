@@ -6,15 +6,17 @@ export default props => {
   const [region, setRegion] = useState({
     latitude: -34.71863,
     longitude: -58.370963,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421
+    latitudeDelta: 0.016,
+    longitudeDelta: 0.09
   });
+
+  const { pets } = props;
 
   return (
     <View style={styles.backgroundView}>
       {/* onRegionChangeComplete={setRegion} */}
       <MapView provider={PROVIDER_GOOGLE} style={styles.map} region={region}>
-        <Marker coordinate={marker.latlng} title={marker.title} description={marker.description} />
+        {pets && <Marker coordinate={pet.location.latlng} title={pet.name} description={pet.description} />}
       </MapView>
     </View>
   );

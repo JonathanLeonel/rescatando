@@ -1,12 +1,20 @@
-import React from "react";
-import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
-import { Button, FAB, withTheme } from "react-native-paper";
+import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, ScrollView, Image, RefreshControl } from "react-native";
+import { Button, FAB, withTheme, ActivityIndicator } from "react-native-paper";
 
 const BuscadosScreen = props => {
   const { colors } = props.theme;
+
+  // const [buscados, setBuscados] = useState([]);
+  const { buscados, fetching, error, fetchBuscados } = props;
+
+  useEffect(() => {
+    fetchBuscados && fetchBuscados();
+  }, []);
+
   return (
     <View style={styles.backgroundView}>
-      <ScrollView>
+      <ScrollView refreshControl={<RefreshControl refreshing={fetching} onRefresh={fetchBuscados} />}>
         <View style={styles.headingView}>
           <Text style={styles.headingTitle}>Buscados</Text>
           <Text style={styles.headingText}>Si viste a alguien y lo reconoces toca su foto para ponerte en contacto con su dueño.</Text>
@@ -22,11 +30,14 @@ const BuscadosScreen = props => {
             </Button>
           </View>
         </View>
-        <View style={styles.imagesContainer}>
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(el => (
-            <Image style={styles.image} source={images[getRandomInt(0, 9)]} key={el} /> //<ImageComponent key={el} imgNumber={getRandomInt(0, 9)} />
-          ))}
-        </View>
+        {buscados && (
+          <View style={styles.imagesContainer}>
+            {buscados.map((buscado, idx) => (
+              <Image style={styles.image} source={buscado.image} key={idx} />
+            ))}
+          </View>
+        )}
+        {error && <Text style={styles.error}>{error}</Text>}
       </ScrollView>
       <FAB style={{ ...styles.fab, backgroundColor: colors.primary }} icon="map" onPress={() => props.navigation.push("Map")} />
     </View>
@@ -79,24 +90,9 @@ const styles = StyleSheet.create({
     margin: 16,
     right: 0,
     bottom: 0
+  },
+  error: {
+    fontSize: 16,
+    padding: 8
   }
 });
-
-const getRandomInt = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-const images = [
-  require("./img/perro1.png"),
-  require("./img/perro2.png"),
-  require("./img/perro3.png"),
-  require("./img/perro4.png"),
-  require("./img/perro5.png"),
-  require("./img/perro6.png"),
-  require("./img/perro7.png"),
-  require("./img/perro8.png"),
-  require("./img/perro9.png"),
-  require("./img/perro10.png")
-];
