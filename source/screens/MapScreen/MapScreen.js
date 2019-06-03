@@ -6,17 +6,17 @@ export default props => {
   const [region, setRegion] = useState({
     latitude: -34.71863,
     longitude: -58.370963,
-    latitudeDelta: 0.016,
-    longitudeDelta: 0.09
+    latitudeDelta: 0.09,
+    longitudeDelta: 0.04
   });
 
-  const { pets } = props;
+  const pets = props.navigation.getParam("pets", []);
 
   return (
     <View style={styles.backgroundView}>
       {/* onRegionChangeComplete={setRegion} */}
       <MapView provider={PROVIDER_GOOGLE} style={styles.map} region={region}>
-        {pets && <Marker coordinate={pet.location.latlng} title={pet.name} description={pet.description} />}
+        {pets && pets.map((pet, idx) => <Marker coordinate={pet.location} title={pet.name} description={pet.description} key={idx} />)}
       </MapView>
     </View>
   );

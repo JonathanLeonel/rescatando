@@ -39,7 +39,7 @@ const BuscadosScreen = props => {
         )}
         {error && <Text style={styles.error}>{error}</Text>}
       </ScrollView>
-      <FAB style={{ ...styles.fab, backgroundColor: colors.primary }} icon="map" onPress={() => props.navigation.push("Map")} />
+      <FAB style={{ ...styles.fab, backgroundColor: colors.primary }} icon="map" onPress={() => props.navigation.push("Map", { pets: buscados })} />
     </View>
   );
 };

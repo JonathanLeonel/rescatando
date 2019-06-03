@@ -1,12 +1,14 @@
+import { getRandomLocation } from "./randomLocation";
+
 export const getBuscados = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const buscados = [];
       for (let i = 0; i < 10; i++) {
         buscados.push({
-          name: "Bobby",
+          name: names[i],
           image: images[i],
-          location: locations[i]
+          location: getRandomLocation() //locations[i]
         });
       }
       resolve(buscados);
@@ -33,6 +35,8 @@ const images = [
   require("./img/perro9.png"),
   require("./img/perro10.png")
 ];
+
+const names = ["Bobby", "Peter", "Fox", "Brisa", "Goro", "Umma", "Apollo", "Daily", "Firulais", "Roger"];
 
 const locations = [
   {
