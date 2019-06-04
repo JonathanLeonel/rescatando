@@ -4,7 +4,7 @@ const centralLatitude = -34.71863,
 const getRandomLatitude = () => {
   const sign = getRandomArbitrary(0, 1);
 
-  const randomLatitude = getRandomArbitrary(0.02, 0.0921);
+  const randomLatitude = getRandomArbitrary(0.02, 0.0921 / 2);
 
   if (sign < 0.5) {
     return centralLatitude - randomLatitude;
@@ -16,7 +16,7 @@ const getRandomLatitude = () => {
 const getRandomLongitude = () => {
   const sign = getRandomArbitrary(0, 1);
 
-  const randomLongitude = getRandomArbitrary(0.02, 0.0822);
+  const randomLongitude = getRandomArbitrary(0.02, 0.0822 / 2);
 
   if (sign < 0.5) {
     return centralLongitude - randomLongitude;

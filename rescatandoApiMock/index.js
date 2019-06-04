@@ -7,7 +7,7 @@ export const getBuscados = () => {
       for (let i = 0; i < 10; i++) {
         buscados.push({
           name: names[i],
-          image: images[i],
+          image: images[getRandomInt(0, 9)],
           location: getRandomLocation() //locations[i]
         });
       }

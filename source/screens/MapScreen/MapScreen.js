@@ -6,8 +6,8 @@ export default props => {
   const [region, setRegion] = useState({
     latitude: -34.71863,
     longitude: -58.370963,
-    latitudeDelta: 0.09,
-    longitudeDelta: 0.04
+    latitudeDelta: 0.0921 + 0.032,
+    longitudeDelta: 0.0822 + 0.018
   });
 
   const pets = props.navigation.getParam("pets", []);

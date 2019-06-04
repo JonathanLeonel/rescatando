@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 
 export default connect(
   (store, ownProps) => ({
-    currentUser: store.login.currentUser,
-    ...ownProps
+    ...ownProps,
+    currentUser: store.login.currentUser
   }),
   (dispatch, ownProps) => ({ ...ownProps })
 )(AuthLoadingScreen);

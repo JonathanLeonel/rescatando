@@ -3,13 +3,13 @@ import { StyleSheet, ImageBackground } from "react-native";
 import LoginComponent from "./LoginComponent";
 
 export default props => {
-  if (this.props.currentUser) {
+  if (props.currentUser) {
     return null;
   }
 
   return (
     <ImageBackground source={require("./img/loginBackground.jpg")} style={styles.container}>
-      <LoginComponent style={styles.loginCard} onLogin={() => this.props.navigation.navigate("App")} />
+      <LoginComponent style={styles.loginCard} onLogin={() => props.navigation.navigate("App")} />
     </ImageBackground>
   );
 };
