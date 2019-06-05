@@ -6,6 +6,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 import { loginReducer } from "../screens/LoginScreen/LoginComponent/redux/reducers";
 import { buscadosReducer } from "../screens/HomeScreen/BuscadosScreen/redux/reducers";
+import { positionReducer } from "../screens/LocationScreen/redux/reducers";
 
 import thunk from "redux-thunk";
 
@@ -25,15 +26,16 @@ const rootReducer = (state = initState, action) => {
 };
 
 const myOwnMiddleware = store => next => action => {
-  console.log(action);
+  // console.log(action);
   next(action);
 };
 
 export const store = createStore(
-  persistReducer(persistConfig, combineReducers({ root: rootReducer, login: loginReducer, buscados: buscadosReducer })),
+  persistReducer(persistConfig, combineReducers({ root: rootReducer, login: loginReducer, buscados: buscadosReducer, location: positionReducer })),
   compose(
     applyMiddleware(myOwnMiddleware),
     applyMiddleware(thunk)
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
 

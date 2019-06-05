@@ -8,7 +8,8 @@ export default connect(
     ...ownProps,
     buscados: state.buscados.buscados,
     error: state.buscados.error,
-    fetching: state.buscados.fetching
+    fetching: state.buscados.fetching,
+    position: state.location.position
   }),
   (dispatch, ownProps) => ({
     ...ownProps,

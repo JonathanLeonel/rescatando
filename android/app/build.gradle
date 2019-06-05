@@ -166,6 +166,13 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:+'
 
     implementation project(':react-native-image-picker')
+
+    // implementation project(':react-native-geolocation-service')
+
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation(project(':react-native-geolocation-service')) {
+        exclude group: 'com.google.android.gms', module: 'play-services-location'
+    }
 }
 
 // Run this once to be able to run the application with BUCK

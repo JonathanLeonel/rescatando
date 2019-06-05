@@ -4,6 +4,7 @@ import HomeScreen from "./HomeScreen";
 import MapScreen from "./MapScreen";
 import UploadFormScreen from "./UploadFormScreen";
 import ChatScreen from "./ChatScreen";
+import LocationScreen from "./LocationScreen";
 
 import { createStackNavigator, createAppContainer, createSwitchNavigator } from "react-navigation";
 
@@ -48,12 +49,24 @@ const AppStack = createStackNavigator(
   }
 );
 
+const LocationStack = createStackNavigator(
+  {
+    Location: {
+      screen: LocationScreen
+    }
+  },
+  {
+    initialRouteName: "Location"
+  }
+);
+
 export default createAppContainer(
   createSwitchNavigator(
     {
       AuthLoading: AuthLoadingScreen,
       App: AppStack,
-      Auth: AuthStack
+      Auth: AuthStack,
+      Location: LocationStack
     },
     {
       initialRouteName: "AuthLoading"

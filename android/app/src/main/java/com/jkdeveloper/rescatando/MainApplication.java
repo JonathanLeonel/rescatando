@@ -13,6 +13,7 @@ import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.imagepicker.ImagePickerPackage;
+import com.agontuk.RNFusedLocation.RNFusedLocationPackage;
 
 
 import java.util.Arrays;
@@ -36,7 +37,8 @@ public class MainApplication extends Application implements ReactApplication {
           new RNFirebaseAuthPackage(),
           new RNGestureHandlerPackage(),
           new MapsPackage(),
-          new ImagePickerPackage()
+          new ImagePickerPackage(),
+          new RNFusedLocationPackage()
       );
     }
 

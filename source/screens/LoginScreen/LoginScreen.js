@@ -9,7 +9,7 @@ export default props => {
 
   return (
     <ImageBackground source={require("./img/loginBackground.jpg")} style={styles.container}>
-      <LoginComponent style={styles.loginCard} onLogin={() => props.navigation.navigate("App")} />
+      <LoginComponent style={styles.loginCard} onLogin={() => props.navigation.navigate("Location")} />
     </ImageBackground>
   );
 };

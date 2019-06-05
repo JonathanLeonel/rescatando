@@ -5,7 +5,7 @@ export default class AuthLoadingScreen extends React.Component {
   constructor(props) {
     super(props);
     // if (props.currentUser) {
-    props.navigation.navigate(props.currentUser ? "Home" : "Login");
+    props.navigation.navigate(props.currentUser ? "Location" : "Login");
     // }
   }
 
