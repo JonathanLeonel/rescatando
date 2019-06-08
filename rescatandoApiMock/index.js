@@ -1,16 +1,21 @@
 import { getRandomLocation } from "./randomLocation";
 
+const buscados = [];
+
 export const getBuscados = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const buscados = [];
-      for (let i = 0; i < 10; i++) {
-        buscados.push({
-          name: names[i],
-          image: images[getRandomInt(0, 9)],
-          location: getRandomLocation() //locations[i]
-        });
-      }
+      resolve(buscados);
+      // reject("No pudimos traer las mascotas buscadas, intentá más tarde por favor");
+    }, 1500);
+  });
+};
+
+export const uploadBusqueda = busqueda => {
+  console.log("Subiendo busqueda", busqueda);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      buscados.push(busqueda);
       resolve(buscados);
       // reject("No pudimos traer las mascotas buscadas, intentá más tarde por favor");
     }, 1500);
@@ -44,3 +49,16 @@ const locations = [
     longitude: -58.370963
   }
 ];
+
+for (let i = 0; i < 10; i++) {
+  buscados.push({
+    name: names[i],
+    image: images[getRandomInt(0, 9)],
+    location: getRandomLocation() //locations[i]
+  });
+}
+
+export default {
+  getBuscados: getBuscados,
+  uploadBusqueda: uploadBusqueda
+};

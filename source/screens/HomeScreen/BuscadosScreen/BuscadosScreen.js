@@ -23,7 +23,7 @@ const BuscadosScreen = props => {
             <Button
               mode="contained"
               onPress={() => {
-                props.navigation.push("UploadForm");
+                props.navigation.push("BuscadoForm");
               }}
             >
               Encontre una mascota

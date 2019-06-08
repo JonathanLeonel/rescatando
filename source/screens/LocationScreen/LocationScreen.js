@@ -5,7 +5,6 @@ import { Button } from "react-native-paper";
 export default props => {
   useEffect(() => {
     if (!props.position || Date.now() - props.position.timestamp > 60 * 60 * 1000) {
-      console.log("POINT 2");
       (async () => {
         if (Platform.OS === "android") {
           const permission = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
@@ -13,7 +12,6 @@ export default props => {
         props.getCurrentPosition();
       })();
     } else {
-      console.log("POINT 2");
       if (props.navigation) {
         setTimeout(() => {
           props.navigation.navigate("App");
