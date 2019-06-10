@@ -7,7 +7,6 @@ const initState = {
 };
 
 export const buscadosReducer = (state = initState, action) => {
-  // console.log(action);
   switch (action.type) {
     case FETCH_BUSCADOS_ACTION:
       return { ...state, fetching: true, buscados: action.buscados, error: action.error };

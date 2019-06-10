@@ -7,12 +7,10 @@ export const UPLOAD_BUSQUEDA_ERROR_ACTION = "BuscadoFormScreen:UPLOAD_BUSQUEDA_E
 export const UPLOAD_BUSQUEDA_CLEAN_ACTION = "BuscadoFormScreen:UPLOAD_BUSQUEDA_CLEAN_ACTION";
 
 export const uploadBusquedaAction = busqueda => {
-  console.log("ACTION_CREATOR::uploadBusqueda", busqueda);
   return async dispatch => {
     dispatch({ type: UPLOAD_BUSQUEDA_ACTION });
     try {
       const buscados = await uploadBusqueda(busqueda);
-      console.log("ACTION_CREATOR::uploadBusqueda1", buscados);
       dispatch({ type: UPLOAD_BUSQUEDA_SUCCESS_ACTION, busqueda });
       dispatch(setBuscados(buscados));
     } catch (error) {

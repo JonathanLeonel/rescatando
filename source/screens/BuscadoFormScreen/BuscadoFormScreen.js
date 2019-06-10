@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
-import { TextInput, Button, ActivityIndicator } from "react-native-paper";
+import { TextInput, Button, ActivityIndicator, Snackbar } from "react-native-paper";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ImagePicker from "react-native-image-picker";
 import FormTextInput from "../../components/FormTextInput";
@@ -32,12 +32,19 @@ export default props => {
   const [collar, setCollar] = useState(form.collar || "");
   const [otrosDetalles, setOtrosDetalles] = useState(form.otrosDetalles || "");
 
+  const [snackbarText, setSnackbarText] = useState(null);
+
+  const [scrollView, setScrollView] = useState(null);
+
   useEffect(() => {
     // TODO: decide to destroy itself on success upload, or show error if needed
     if (props.busqueda && !props.error) {
       // successful upload
       props.limpiarBusqueda();
-      props.navigation && props.navigation.goBack();
+
+      setSnackbarText("Subiste tu búsuqeda con éxito!");
+      scrollView && scrollView.scrollToEnd({ animated: true });
+      // props.navigation && props.navigation.goBack();
     }
 
     return;
@@ -45,7 +52,7 @@ export default props => {
 
   return (
     <View style={styles.backgroundView}>
-      <ScrollView>
+      <ScrollView ref={ref => setScrollView(ref)}>
         <View style={styles.headingView}>
           <Text style={styles.headingTitle}>Encontre una mascota</Text>
           <TouchableOpacity onPress={() => showImagePicker(setFoto, setObtainingFoto)} style={styles.imageContainer}>
@@ -105,8 +112,24 @@ export default props => {
             onChangeText={setOtrosDetalles}
             error={validarInput(otrosDetalles)}
           />
+          <Snackbar
+            visible={snackbarText}
+            duration={1000}
+            onDismiss={() => {
+              props.navigation && props.navigation.goBack();
+              setSnackbarText(null);
+            }}
+            // action={{
+            //   label: "Undo",
+            //   onPress: () => {
+            //     // Do something
+            //   }
+            // }}
+          >
+            {snackbarText}
+          </Snackbar>
           {props.uploading ? (
-            <ActivityIndicator />
+            <ActivityIndicator size="large" />
           ) : (
             <Button
               disabled={props.uploading}
@@ -185,11 +208,11 @@ const showImagePicker = (setImage, setObtainingFoto) => {
   ImagePicker.showImagePicker(options, response => {
     setObtainingFoto(false);
     if (response.didCancel) {
-      console.log("User cancelled image picker");
+      // console.log("User cancelled image picker");
     } else if (response.error) {
-      console.log("ImagePicker Error: ", response.error);
+      // console.log("ImagePicker Error: ", response.error);
     } else if (response.customButton) {
-      console.log("User tapped custom button: ", response.customButton);
+      // console.log("User tapped custom button: ", response.customButton);
     } else {
       // const source = { uri: response.uri };
 
@@ -203,14 +226,11 @@ const showImagePicker = (setImage, setObtainingFoto) => {
 
 // returns true on error
 const validarInput = text => {
-  console.log("Validando", text);
-
   if (!text) {
     return true;
   }
 
   if (text.length > 8) {
-    console.log("Es mayor a 8", text);
     return true;
   }
 
@@ -218,7 +238,13 @@ const validarInput = text => {
 };
 
 const validateAndUpload = (values, uploadFunction) => {
+  return uploadFunction(values);
+
   const { foto, nombre, raza, pelaje, collar, otrosDetalles } = values;
+
+  // if (validarFoto(foto)) {
+  // return;
+  // }
 
   if (validarInput(nombre)) {
     return;
