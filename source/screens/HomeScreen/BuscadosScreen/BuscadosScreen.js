@@ -8,9 +8,21 @@ const BuscadosScreen = props => {
   // const [buscados, setBuscados] = useState([]);
   const { buscados, fetching, error, fetchBuscados } = props;
 
+  const [screenFocused, setScreenFocused] = useState(false);
+
   useEffect(() => {
     fetchBuscados && fetchBuscados();
+    props.navigation.addListener("didBlur", () => {
+      console.log(screenFocused);
+      setScreenFocused(false);
+    });
+    props.navigation.addListener("didFocus", () => {
+      console.log(screenFocused);
+      setScreenFocused(true);
+    });
   }, []);
+
+  console.log("BuscadosScreen: ", buscados);
 
   return (
     <View style={styles.backgroundView}>
