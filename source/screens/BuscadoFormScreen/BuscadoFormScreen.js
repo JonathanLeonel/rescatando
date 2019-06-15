@@ -50,6 +50,10 @@ export default props => {
     return;
   }, [props.busqueda, props.error]);
 
+  useEffect(() => {
+    props.limpiarBusqueda();
+  }, []);
+
   return (
     <View style={styles.backgroundView}>
       <ScrollView ref={ref => setScrollView(ref)}>

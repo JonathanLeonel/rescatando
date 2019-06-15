@@ -22,6 +22,8 @@ const BuscadosScreen = props => {
     });
   }, []);
 
+  console.log("BuscadosScreen: ", buscados);
+
   return (
     <View style={styles.backgroundView}>
       <ScrollView refreshControl={<RefreshControl refreshing={fetching} onRefresh={fetchBuscados} />}>
