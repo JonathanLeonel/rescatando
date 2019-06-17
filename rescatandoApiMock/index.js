@@ -1,6 +1,6 @@
 import { getRandomLocation } from "./randomLocation";
 
-const buscados = [];
+let buscados = [];
 
 export const getBuscados = () => {
   return new Promise((resolve, reject) => {
@@ -14,11 +14,14 @@ export const getBuscados = () => {
 export const uploadBusqueda = busqueda => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      buscados.push({
-        ...busqueda,
-        image: busqueda.foto, //images[getRandomInt(0, 9)],
-        location: getRandomLocation()
-      });
+      buscados = [
+        {
+          ...busqueda,
+          image: busqueda.foto, //images[getRandomInt(0, 9)],
+          location: getRandomLocation()
+        },
+        ...buscados
+      ];
       resolve(buscados);
       // reject("No pudimos traer las mascotas buscadas, intentá más tarde por favor");
     }, 1500);

@@ -5,8 +5,9 @@ import MapScreen from "./MapScreen";
 import BuscadoFormScreen from "./BuscadoFormScreen";
 import ChatScreen from "./ChatScreen";
 import LocationScreen from "./LocationScreen";
+import DetalleScreen from "./DetalleScreen";
 
-import { createStackNavigator, createAppContainer, createSwitchNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer, createSwitchNavigator, createMaterialTopTabNavigator } from "react-navigation";
 
 const AuthStack = createStackNavigator({
   Login: {
@@ -37,12 +38,31 @@ const AppStack = createStackNavigator(
         headerTitle: "Rescatando!"
       })
     },
-    Chat: {
-      screen: ChatScreen,
-      navigationOptions: () => ({
-        headerTitle: "Rescatando!"
-      })
-    }
+    Buscado: createMaterialTopTabNavigator(
+      {
+        Detalle: DetalleScreen,
+        Chat: ChatScreen
+      },
+      {
+        defaultNavigationOptions: ({ navigation }) => ({
+          tabBarIcon: ({ focused, horizontal, tintColor }) => {
+            const { routeName } = navigation.state;
+            let tabName;
+            if (routeName === "Detalle") {
+              tabName = "Detalle";
+            } else if (routeName === "Chat") {
+              tabName = "Chat";
+            }
+            // You can return any component that you like here!
+            return <Text>{tabName}</Text>; //<IconComponent name={iconName} size={25} />;
+          }
+        }),
+        tabBarOptions: {
+          indicatorStyle: { backgroundColor: "white" },
+          style: { backgroundColor: "#009688", color: "rgba(255, 255, 255, 0.6)" }
+        }
+      }
+    )
   },
   {
     initialRouteName: "Home"

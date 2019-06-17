@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, ScrollView, Image, RefreshControl } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Image, RefreshControl, TouchableOpacity } from "react-native";
 import { Button, FAB, withTheme, ActivityIndicator } from "react-native-paper";
 
 const BuscadosScreen = props => {
@@ -45,7 +45,15 @@ const BuscadosScreen = props => {
         {buscados && (
           <View style={styles.imagesContainer}>
             {buscados.map((buscado, idx) => (
-              <Image style={styles.image} source={buscado.image} key={idx} />
+              <TouchableOpacity
+                style={styles.imageContainer}
+                key={idx}
+                onPress={() => {
+                  props.navigation.push("Buscado", { buscado: buscado });
+                }}
+              >
+                <Image style={styles.image} source={buscado.image} />
+              </TouchableOpacity>
             ))}
           </View>
         )}
@@ -88,12 +96,17 @@ const styles = StyleSheet.create({
     // overflow: "scroll",
     flexWrap: "wrap",
     // alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "flex-start"
     // alignContent: "flex-start"
     // alignSelf: "stretch"
   },
-  image: {
+  imageContainer: {
     width: "33.3%",
+    aspectRatio: 1,
+    height: undefined
+  },
+  image: {
+    width: "100%",
     aspectRatio: 1,
     height: undefined
   },
