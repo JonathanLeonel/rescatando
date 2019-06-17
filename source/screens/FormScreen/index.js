@@ -1,4 +1,4 @@
-import BuscadoFormScreen from "./BuscadoFormScreen";
+import FormScreen from "./FormScreen";
 
 import { uploadBusquedaAction, limpiarBusqueda } from "./redux/actions";
 
@@ -19,7 +19,7 @@ export default connect(
       dispatch(limpiarBusqueda());
     }
   })
-)(BuscadoFormScreen);
+)(FormScreen);
 
 // const subirBusqueda = busqueda => {
 //   console.log("Está por subir una búsqueda: ", busqueda);

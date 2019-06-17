@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 
 import { fetchBuscados } from "./redux/actions";
+import { setMascota } from "../redux/actions";
 import BuscadosScreen from "./BuscadosScreen";
 
 export default connect(
@@ -19,6 +20,9 @@ export default connect(
     },
     fetchBuscados: () => {
       return dispatch(fetchBuscados());
+    },
+    setMascota: mascota => {
+      return dispatch(setMascota(mascota));
     }
   })
 )(BuscadosScreen);

@@ -1,19 +1,13 @@
-import { FETCH_BUSCADOS_ACTION, SET_BUSCADOS_ACTION, SET_BUSCADOS_ERROR_ACTION } from "./actions";
+import { SET_MASCOTA_ACTION } from "./actions";
 
 const initState = {
-  buscados: [],
-  fetching: false,
-  error: null
+  mascota: {}
 };
 
-export const buscadosReducer = (state = initState, action) => {
+export const homeReducer = (state = initState, action) => {
   switch (action.type) {
-    case FETCH_BUSCADOS_ACTION:
-      return { ...state, fetching: true, buscados: action.buscados, error: action.error };
-    case SET_BUSCADOS_ACTION:
-      return { ...state, fetching: false, buscados: action.buscados, error: action.error };
-    case SET_BUSCADOS_ERROR_ACTION:
-      return { ...state, fetching: false, buscados: action.buscados, error: action.error };
+    case SET_MASCOTA_ACTION:
+      return { ...state, mascota: action.mascota };
     default:
       return state;
   }

@@ -17,7 +17,7 @@ export const uploadBusqueda = busqueda => {
       buscados = [
         {
           ...busqueda,
-          image: busqueda.foto, //images[getRandomInt(0, 9)],
+          foto: busqueda.foto, //images[getRandomInt(0, 9)],
           location: getRandomLocation()
         },
         ...buscados
@@ -34,7 +34,7 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const images = [
+const fotos = [
   require("./img/perro1.png"),
   require("./img/perro2.png"),
   require("./img/perro3.png"),
@@ -47,7 +47,7 @@ const images = [
   require("./img/perro10.png")
 ];
 
-const names = ["Bobby", "Peter", "Fox", "Brisa", "Goro", "Umma", "Apollo", "Daily", "Firulais", "Roger"];
+const nombres = ["Bobby", "Peter", "Fox", "Brisa", "Goro", "Umma", "Apollo", "Daily", "Firulais", "Roger"];
 
 const locations = [
   {
@@ -58,8 +58,8 @@ const locations = [
 
 for (let i = 0; i < 10; i++) {
   buscados.push({
-    name: names[i],
-    image: images[getRandomInt(0, 9)],
+    nombre: nombres[i],
+    foto: fotos[getRandomInt(0, 9)],
     location: getRandomLocation() //locations[i]
   });
 }

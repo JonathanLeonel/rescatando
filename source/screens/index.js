@@ -2,7 +2,7 @@ import AuthLoadingScreen from "./AuthLoadingScreen";
 import LoginScreen from "./LoginScreen";
 import HomeScreen from "./HomeScreen";
 import MapScreen from "./MapScreen";
-import BuscadoFormScreen from "./BuscadoFormScreen";
+import FormScreen from "./FormScreen";
 import ChatScreen from "./ChatScreen";
 import LocationScreen from "./LocationScreen";
 import DetalleScreen from "./DetalleScreen";
@@ -32,8 +32,8 @@ const AppStack = createStackNavigator(
         headerTitle: "Rescatando!"
       })
     },
-    BuscadoForm: {
-      screen: BuscadoFormScreen,
+    Form: {
+      screen: FormScreen,
       navigationOptions: () => ({
         headerTitle: "Rescatando!"
       })

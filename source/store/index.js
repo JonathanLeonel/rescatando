@@ -2,14 +2,15 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import hardSet from "redux-persist/lib/stateReconciler/hardSet";
 
+import thunk from "redux-thunk";
+
 import AsyncStorage from "@react-native-community/async-storage";
 
 import { loginReducer } from "../screens/LoginScreen/LoginComponent/redux/reducers";
 import { buscadosReducer } from "../screens/HomeScreen/BuscadosScreen/redux/reducers";
 import { positionReducer } from "../screens/LocationScreen/redux/reducers";
-import { uploadBusquedaReducer } from "../screens/BuscadoFormScreen/redux/reducers";
-
-import thunk from "redux-thunk";
+import { uploadBusquedaReducer } from "../screens/FormScreen/redux/reducers";
+import { homeReducer } from "../screens/HomeScreen/redux/reducers";
 
 // Configuracion de persist para redux-persist
 const persistConfig = {
@@ -27,14 +28,14 @@ const rootReducer = (state = initState, action) => {
 };
 
 const myOwnMiddleware = store => next => action => {
-  console.log("MY OWN MIDDLEWARE", action);
+  // console.log("MY OWN MIDDLEWARE", action);
   next(action);
 };
 
 export const store = createStore(
   persistReducer(
     persistConfig,
-    combineReducers({ root: rootReducer, login: loginReducer, buscados: buscadosReducer, location: positionReducer, uploadBusqueda: uploadBusquedaReducer })
+    combineReducers({ root: rootReducer, login: loginReducer, home: homeReducer, buscados: buscadosReducer, location: positionReducer, uploadBusqueda: uploadBusquedaReducer })
   ),
   compose(
     applyMiddleware(thunk),

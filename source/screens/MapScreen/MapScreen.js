@@ -10,13 +10,13 @@ export default props => {
     longitudeDelta: 0.0822 + 0.018
   });
 
-  const pets = props.navigation.getParam("pets", []);
+  const mascotas = props.navigation.getParam("mascotas", []);
 
   return (
     <View style={styles.backgroundView}>
       {/* onRegionChangeComplete={setRegion} */}
       <MapView provider={PROVIDER_GOOGLE} style={styles.map} region={region}>
-        {pets && pets.map((pet, idx) => <Marker coordinate={pet.location} title={pet.name} description={pet.description} key={idx} />)}
+        {mascotas && mascotas.map((mascota, idx) => <Marker coordinate={mascota.location} title={mascota.nombre} description={mascota.description} key={idx} />)}
       </MapView>
     </View>
   );

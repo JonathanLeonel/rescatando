@@ -6,23 +6,19 @@ const BuscadosScreen = props => {
   const { colors } = props.theme;
 
   // const [buscados, setBuscados] = useState([]);
-  const { buscados, fetching, error, fetchBuscados } = props;
+  const { buscados, fetching, error, fetchBuscados, setMascota } = props;
 
   const [screenFocused, setScreenFocused] = useState(false);
 
   useEffect(() => {
     fetchBuscados && fetchBuscados();
     props.navigation.addListener("didBlur", () => {
-      console.log(screenFocused);
       setScreenFocused(false);
     });
     props.navigation.addListener("didFocus", () => {
-      console.log(screenFocused);
       setScreenFocused(true);
     });
   }, []);
-
-  console.log("BuscadosScreen: ", buscados);
 
   return (
     <View style={styles.backgroundView}>
@@ -35,7 +31,7 @@ const BuscadosScreen = props => {
             <Button
               mode="contained"
               onPress={() => {
-                props.navigation.push("BuscadoForm");
+                props.navigation.push("Form");
               }}
             >
               Encontre una mascota
@@ -49,17 +45,18 @@ const BuscadosScreen = props => {
                 style={styles.imageContainer}
                 key={idx}
                 onPress={() => {
-                  props.navigation.push("Buscado", { buscado: buscado });
+                  setMascota(buscado);
+                  props.navigation.push("Buscado");
                 }}
               >
-                <Image style={styles.image} source={buscado.image} />
+                <Image style={styles.image} source={buscado.foto} />
               </TouchableOpacity>
             ))}
           </View>
         )}
         {error && <Text style={styles.error}>{error}</Text>}
       </ScrollView>
-      <FAB style={{ ...styles.fab, backgroundColor: colors.primary }} icon="map" onPress={() => props.navigation.push("Map", { pets: buscados })} />
+      <FAB style={{ ...styles.fab, backgroundColor: colors.primary }} icon="map" onPress={() => props.navigation.push("Map", { mascotas: buscados })} />
     </View>
   );
 };
