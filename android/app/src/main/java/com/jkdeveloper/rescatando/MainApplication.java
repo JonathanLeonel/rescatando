@@ -4,6 +4,8 @@ import android.app.Application;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.facebook.react.ReactApplication;
 import io.invertase.firebase.RNFirebasePackage;
+
+import com.facebook.react.modules.storage.ReactDatabaseSupplier;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -57,5 +59,7 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+
+    ReactDatabaseSupplier.getInstance(getApplicationContext()).setMaximumSize(1024L * 1024L * 1024L); // 1 GB in bytes
   }
 }

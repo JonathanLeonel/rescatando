@@ -21,7 +21,6 @@ public class MainActivity extends ReactActivity implements OnImagePickerPermissi
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-        ReactDatabaseSupplier.getInstance(this).setMaximumSize(1024L * 1024L * 1024L); // 1 GB in bytes
     }
 
     /**
