@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, Marker, Callout, CalloutSubview } from "react-native-maps";
 
 export default props => {
   const { setMascota } = props;
@@ -21,15 +21,15 @@ export default props => {
         {mascotas &&
           mascotas.map((mascota, idx) => (
             <Marker coordinate={mascota.location} title={mascota.nombre} description={mascota.description} key={idx}>
-              <Callout tooltip={false}>
+              <Callout
+                tooltip={false}
+                onPress={() => {
+                  setMascota(mascota);
+                  props.navigation.push("Buscado");
+                }}
+              >
                 <Text>{mascota.nombre}</Text>
-                <TouchableOpacity
-                  style={styles.imageContainer}
-                  onPress={() => {
-                    setMascota(mascota);
-                    props.navigation.push("Buscado");
-                  }}
-                >
+                <TouchableOpacity style={styles.imageContainer}>
                   <Image style={styles.image} source={mascota.foto} />
                 </TouchableOpacity>
               </Callout>
