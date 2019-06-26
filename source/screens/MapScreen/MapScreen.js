@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps";
 
 export default props => {
+  const { setMascota } = props;
+
   const [region, setRegion] = useState({
     latitude: -34.71863,
     longitude: -58.370963,
@@ -16,7 +18,23 @@ export default props => {
     <View style={styles.backgroundView}>
       {/* onRegionChangeComplete={setRegion} */}
       <MapView provider={PROVIDER_GOOGLE} style={styles.map} region={region}>
-        {mascotas && mascotas.map((mascota, idx) => <Marker coordinate={mascota.location} title={mascota.nombre} description={mascota.description} key={idx} />)}
+        {mascotas &&
+          mascotas.map((mascota, idx) => (
+            <Marker coordinate={mascota.location} title={mascota.nombre} description={mascota.description} key={idx}>
+              <Callout tooltip={false}>
+                <Text>{mascota.nombre}</Text>
+                <TouchableOpacity
+                  style={styles.imageContainer}
+                  onPress={() => {
+                    setMascota(mascota);
+                    props.navigation.push("Buscado");
+                  }}
+                >
+                  <Image style={styles.image} source={mascota.foto} />
+                </TouchableOpacity>
+              </Callout>
+            </Marker>
+          ))}
       </MapView>
     </View>
   );
@@ -30,6 +48,17 @@ const styles = StyleSheet.create({
   map: {
     width: "100%",
     height: "100%"
+  },
+  imageContainer: {
+    width: 100,
+    aspectRatio: 1,
+    height: undefined,
+    marginTop: 10
+  },
+  image: {
+    width: "100%",
+    aspectRatio: 1,
+    height: undefined
   }
 });
 
